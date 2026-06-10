@@ -16,11 +16,15 @@ INSERT INTO evaluation (id_evaluation, titre, date_eval, coefficient, id_matiere
 (2, 'TP Noté Web', '2026-06-10', 1.0, 2),
 (3, 'Contrôle Continu Système', '2026-06-12', 1.5, 3);
 
--- Données pour la table avoir_note
-INSERT INTO avoir_note (id_etudiant, id_evaluation, valeur) VALUES
+-- Données pour la table notes
+INSERT INTO notes (id_etudiant, id_evaluation, valeur) VALUES
 (1, 1, 15),
 (1, 2, 18),
 (2, 1, 12),
 (2, 3, 14),
 (3, 2, 16),
 (3, 3, 10);
+
+-- Tri des données avec accents pour vérifier la collation française
+SELECT * FROM matiere ORDER BY intitule;
+SELECT * FROM etudiant ORDER BY nom, prenom;

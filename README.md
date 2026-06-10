@@ -25,15 +25,15 @@ docker exec -t postgres_but3 psql -U admin_user -d but3_backup -f /tmp/multi_lan
 ```
 
 ## Targeted restoration
-### Dump etudiants table in custom format
+### Dump etudiant table in standard SQL format
 ```bash
-docker exec -t postgres_but3 pg_dump -U admin_user -t etudiant multi_lang -F c -f /tmp/etudiants_only.dump
+docker exec -t postgres_but3 pg_dump -U admin_user -t etudiant multi_lang -f /tmp/etudiants_only.sql
 ```
 ### Create new database to test restore
 ```bash
 docker exec -t postgres_but3 psql -U admin_user multi_lang -c "CREATE DATABASE BUT3_empty;"
 ```
-### Resotre only etudiants table
+### Restore only etudiant table
 ```bash
-docker exec -t postgres_but3 pg_restore -U admin_user -d but3_empty /tmp/etudiants_only.dump
+docker exec -t postgres_but3 psql -U admin_user -d but3_empty -f /tmp/etudiants_only.sql
 ```
