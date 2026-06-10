@@ -36,3 +36,12 @@ CREATE TABLE avoir_note(
     foreign key (id_etudiant) references etudiant(id_etudiant),
     foreign key (id_evaluation) references evaluation(id_evaluation)
 )
+
+
+CREATE USER 'root'
+IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON *.* TO 'root';
+
+CREATE USER 'read_only_user'
+IDENTIFIED BY 'read_only_password';
+GRANT SELECT ON *.* TO 'read_only_user';
