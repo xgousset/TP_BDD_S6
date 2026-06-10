@@ -5,7 +5,6 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: rootpassword
-      # Forces the database cluster to initialize with French collation
       POSTGRES_INITDB_ARGS: "--locale=fr_FR.utf8" 
       POSTGRES_DB: multi_lang
     ports:
