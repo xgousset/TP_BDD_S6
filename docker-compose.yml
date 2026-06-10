@@ -5,7 +5,8 @@ services:
     restart: always
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: rootpassword
+      POSTGRES_PASSWORD: root
+      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_INITDB_ARGS: "--locale=fr_FR.utf8" 
       POSTGRES_DB: multi_lang
     ports:
