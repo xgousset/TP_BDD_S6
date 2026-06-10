@@ -4,13 +4,14 @@ services:
     container_name: postgres_but3
     restart: always
     environment:
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: rootpassword
       POSTGRES_INITDB_ARGS: "--locale=fr_FR.utf8" 
       POSTGRES_DB: multi_lang
     ports:
       - "5433:5432"
     volumes:
-      - ./init-scripts:/docker-entrypoint-initdb.d/
+      - ./scripts:/docker-entrypoint-initdb.d/
       - pgdata:/var/lib/postgresql/data
 
 volumes:

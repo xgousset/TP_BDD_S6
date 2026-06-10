@@ -1,5 +1,12 @@
 ## Starting the environment
 ```bash
+docker build .
+docker compose up -d
+```
+
+### Reinitialise the database
+```bash
+docker compose down -v
 docker compose up -d
 ```
 
