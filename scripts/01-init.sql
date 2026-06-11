@@ -6,25 +6,28 @@ DROP TABLE IF EXISTS etudiant;
 
 DROP TABLE IF EXISTS matiere;
 
+DROP COLLATION IF EXISTS "BUT3";
+CREATE COLLATION "BUT3" (locale = 'fr_FR.utf8');
+
 CREATE TABLE matiere (
     id_matiere INT,
-    code_matière varchar(128),
-    intitule varchar(128),
+    code_matière varchar(128) COLLATE "BUT3",
+    intitule varchar(128) COLLATE "BUT3",
     primary key (id_matiere)
 );
 
 CREATE TABLE etudiant (
     id_etudiant INT,
     numero_etudiant INT,
-    prenom VARCHAR(128),
-    nom VARCHAR(128),
-    email VARCHAR(128),
+    prenom VARCHAR(128) COLLATE "BUT3",
+    nom VARCHAR(128) COLLATE "BUT3",
+    email VARCHAR(128) COLLATE "BUT3",
     primary key (id_etudiant)
 );
 
 CREATE TABLE evaluation (
     id_evaluation INT,
-    titre VARCHAR(128),
+    titre VARCHAR(128) COLLATE "BUT3",
     date_eval DATE,
     coefficient DECIMAL(15, 2),
     id_matiere INT NOT NULL,

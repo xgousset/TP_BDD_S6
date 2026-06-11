@@ -6,9 +6,9 @@ INSERT INTO matiere (id_matiere, code_matière, intitule) VALUES
 
 -- Données pour la table etudiant
 INSERT INTO etudiant (id_etudiant, numero_etudiant, prenom, nom, email) VALUES
-(1, 222001, 'Alice', 'Dupont', 'alice.dupont@etu.univ.fr'),
-(2, 222002, 'Bob', 'Martin', 'bob.martin@etu.univ.fr'),
-(3, 222003, 'Charlie', 'Durand', 'charlie.durand@etu.univ.fr');
+(1, 222001, 'Élodie', 'Dupont', 'elodie.dupont@etu.univ.fr'),
+(2, 222002, 'Jérôme', 'Martin', 'jerome.martin@etu.univ.fr'),
+(3, 222003, 'Charlie', 'Étienne', 'charlie.etienne@etu.univ.fr');
 
 -- Données pour la table evaluation
 INSERT INTO evaluation (id_evaluation, titre, date_eval, coefficient, id_matiere) VALUES
@@ -26,5 +26,5 @@ INSERT INTO notes (id_etudiant, id_evaluation, valeur) VALUES
 (3, 3, 10);
 
 -- Tri des données avec accents pour vérifier la collation française
-SELECT * FROM matiere ORDER BY intitule;
-SELECT * FROM etudiant ORDER BY nom, prenom;
+SELECT * FROM matiere ORDER BY intitule COLLATE "BUT3";
+SELECT * FROM etudiant ORDER BY nom COLLATE "BUT3", prenom COLLATE "BUT3";
